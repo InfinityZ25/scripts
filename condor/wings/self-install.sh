@@ -144,7 +144,7 @@ curl "http://condor.jcedeno.us/api/application/nodes/$id/allocations" \
   -H "Authorization: Bearer $_arg_token" \
   -X POST \
   -d "{
-  \"ip\": \"$IP\",
+  \"ip\": \"$_arg_fqdn\",
   \"ports\": [
     \"25560\",
     \"25561\",
