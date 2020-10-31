@@ -137,4 +137,27 @@ echo "ID nodo = $id"
 #Auto configure
 cd /etc/pterodactyl && sudo wings configure --panel-url http://condor.jcedeno.us --token $_arg_token --node $id
 
+#Allocate IPS
+
+curl "http://condor.jcedeno.us/api/application/nodes/$id/allocations" \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $_arg_token" \
+  -X POST \
+  -d "{
+  \"ip\": $IP,
+  \"ports\": [
+    \"25560\",
+    \"25561\",
+    \"25562\",
+    \"25563\",
+    \"25564\",
+    \"25565\",
+    \"25566\",
+    \"25567\",
+    \"25568\",
+    \"25569\"
+  ]
+}"
+
 # ] <-- needed because of Argbash
